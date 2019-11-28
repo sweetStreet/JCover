@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d46b34b-7535-4cb4-a2e9-fa8386d8cddc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agents/MethodTransformVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agents/MethodTransformVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/agents/MethodTransformVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/agents/MethodTransformVisitor.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +70,7 @@
       <workItem from="1574576338960" duration="184000" />
       <workItem from="1574795168602" duration="625000" />
       <workItem from="1574885911996" duration="909000" />
-      <workItem from="1574937517620" duration="729000" />
+      <workItem from="1574937517620" duration="1754000" />
     </task>
     <servers />
   </component>
