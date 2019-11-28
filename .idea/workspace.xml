@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d46b34b-7535-4cb4-a2e9-fa8386d8cddc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agents/Agent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agents/ClassTransformVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agents/CoverageCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agents/JUnitListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agents/MethodTransformVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agents/TestingClassFileTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agents/package-info.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +35,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -76,7 +67,7 @@
       <workItem from="1574576338960" duration="184000" />
       <workItem from="1574795168602" duration="625000" />
       <workItem from="1574885911996" duration="909000" />
-      <workItem from="1574937517620" duration="424000" />
+      <workItem from="1574937517620" duration="729000" />
     </task>
     <servers />
   </component>
