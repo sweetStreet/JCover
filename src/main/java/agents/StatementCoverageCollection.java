@@ -5,16 +5,15 @@ import java.util.HashSet;
 
 public class StatementCoverageCollection {
 	
-	public static HashMap<String, HashMap<String, HashSet<Integer>>> testCase_Coverages;
-	public static HashMap<String, HashSet<Integer>> coverage;
+	public static HashMap<String, HashMap<String, HashSet<Integer>>> testCase_StmtCoverages;
+	public static HashMap<String, HashSet<Integer>> stmtcoverage;
 	public static String testCase;
-	public static int totallines;
-	
-	
+
+
 	public static void addMethodLine(String className, Integer line){
 
     	//return if no test has been started
-		if (coverage == null) {
+		if (stmtcoverage == null) {
     		return;
     	}
     	
@@ -23,16 +22,17 @@ public class StatementCoverageCollection {
     	
     	//get the hashset of ints stored in the coverage hashmap. 
     	//if the set is not empty just add the new line, else initialize a new set and add the lines. 
-    	lines = coverage.get(className);
+    	lines = stmtcoverage.get(className);
         if (lines != null) {
         	lines.add(line);
         }
         else {
         	lines = new HashSet<Integer>();
         	lines.add(line);
-            coverage.put(className, lines);
+            stmtcoverage.put(className, lines);
         }
 
     }
+
 
 }
