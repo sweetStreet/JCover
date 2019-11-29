@@ -3,5 +3,6 @@ main/java/agents/ClassTransformVisitor.class
 main/java/agents/Agent.class
 main/java/agents/TestingClassFileTransformer.class
 main/java/agents/MethodTransformVisitor.class
-main/java/agents/CoverageCollection.class
+main/java/agents/StatementCoverageCollection.class
+main/java/agents/BranchCoverageCollection.class
 main/java/agents/JUnitListener.class

@@ -4,7 +4,7 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-class MethodTransformVisitor extends MethodVisitor implements Opcodes {
+class  MethodTransformVisitor extends MethodVisitor implements Opcodes {
 
 	String mName;
 	
@@ -23,13 +23,20 @@ class MethodTransformVisitor extends MethodVisitor implements Opcodes {
 			mv.visitLdcInsn(mName);
 			mv.visitLdcInsn(line);
 			mv.visitMethodInsn(INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;", false);
-			mv.visitMethodInsn(INVOKESTATIC, "main/java/agents/CoverageCollection", "addMethodLine", "(Ljava/lang/String;Ljava/lang/Integer;)V", false);
+			mv.visitMethodInsn(INVOKESTATIC, "main/java/agents/StatementCoverageCollection", "addMethodLine", "(Ljava/lang/String;Ljava/lang/Integer;)V", false);
 
-    	}
+			if(start.getOffset()!=0){
+                mv.visitLdcInsn(mName);
+                mv.visitLdcInsn(line);
+                mv.visitMethodInsn(INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;", false);
+                mv.visitMethodInsn(INVOKESTATIC, "main/java/agents/BranchCoverageCollection", "addMethodBranch", "(Ljava/lang/String;Ljava/lang/Integer;)V", false);
+            }
+
+        }
 
     	super.visitLineNumber(line, start);
     }
-
+    
 
     
     //lets the visitor know they have reached the end of the method
