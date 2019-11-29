@@ -21,23 +21,22 @@ public class JUnitListener extends RunListener {
     public void testRunStarted(Description description) throws Exception {
     		
 
-    	if (null == CoverageCollection.testCase_Coverages)
+    	if (null == StatementCoverageCollection.testCase_Coverages)
 		{
-			CoverageCollection.testCase_Coverages = new HashMap<String, HashMap<String, HashSet<Integer>>>();
+			StatementCoverageCollection.testCase_Coverages = new HashMap<String, HashMap<String, HashSet<Integer>>>();
 		}
     	System.out.println("Starting tests...");
     }
     
     public void testStarted(Description description) {
-    	
-    	CoverageCollection.testCase = "[TEST] " + description.getClassName() + ":" + description.getMethodName() + ":" + i;
-    	CoverageCollection.coverage = new HashMap<String, HashSet<Integer>>();
+    	StatementCoverageCollection.testCase = "[TEST] " + description.getClassName() + ":" + description.getMethodName() + ":" + i;
+    	StatementCoverageCollection.coverage = new HashMap<String, HashSet<Integer>>();
     	i++;
     }
 
     public void testFinished(Description description) throws Exception {
     	
-    	CoverageCollection.testCase_Coverages.put(CoverageCollection.testCase, CoverageCollection.coverage);
+    	StatementCoverageCollection.testCase_Coverages.put(StatementCoverageCollection.testCase, StatementCoverageCollection.coverage);
 
     }
 
@@ -51,11 +50,11 @@ public class JUnitListener extends RunListener {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
         StringBuilder builder = new StringBuilder();
-        for (String testCaseName : CoverageCollection.testCase_Coverages.keySet()) {
+        for (String testCaseName : StatementCoverageCollection.testCase_Coverages.keySet()) {
         	builder.append(testCaseName + "\n");
         	
         	HashMap<String, HashSet<Integer>> caseCoverage = 
-        			CoverageCollection.testCase_Coverages.get(testCaseName);
+        			StatementCoverageCollection.testCase_Coverages.get(testCaseName);
         	
             for (String className : caseCoverage.keySet()) {
             	HashSet<Integer> lines = caseCoverage.get(className);
@@ -68,16 +67,15 @@ public class JUnitListener extends RunListener {
         }
         bw.write(builder.toString());
         bw.close();
-		System.out.println("totallines: "+ Constant.totalnumber);
     }
 
     public void testFailure(Failure failure) {
-    	CoverageCollection.testCase = "[TEST FAILED] " + failure.getDescription().getClassName() + ":" + failure.getDescription().getMethodName();
-    	CoverageCollection.testCase_Coverages.put(CoverageCollection.testCase, CoverageCollection.coverage);
+    	StatementCoverageCollection.testCase = "[TEST FAILED] " + failure.getDescription().getClassName() + ":" + failure.getDescription().getMethodName();
+    	StatementCoverageCollection.testCase_Coverages.put(StatementCoverageCollection.testCase, StatementCoverageCollection.coverage);
     }
     
     public void testAssumptionFailure(Failure failure) {
-    	CoverageCollection.testCase = "[TEST ASSUMPTION FAILED] " + failure.getDescription().getClassName() + ":" + failure.getDescription().getMethodName();
-    	CoverageCollection.testCase_Coverages.put(CoverageCollection.testCase, CoverageCollection.coverage);
+    	StatementCoverageCollection.testCase = "[TEST ASSUMPTION FAILED] " + failure.getDescription().getClassName() + ":" + failure.getDescription().getMethodName();
+    	StatementCoverageCollection.testCase_Coverages.put(StatementCoverageCollection.testCase, StatementCoverageCollection.coverage);
     }
 }
