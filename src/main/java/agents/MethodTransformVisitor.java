@@ -15,14 +15,18 @@ class MethodTransformVisitor extends MethodVisitor implements Opcodes {
     
     //visits line of code along the path of the called method and parameters
     public void visitLineNumber(int line, Label start) {
+
+        Constant.totalnumber++;
+
     	if (0 != line) {
-	    	
+
 			mv.visitLdcInsn(mName);
 			mv.visitLdcInsn(line);
 			mv.visitMethodInsn(INVOKESTATIC, "java/lang/Integer", "valueOf", "(I)Ljava/lang/Integer;", false);
 			mv.visitMethodInsn(INVOKESTATIC, "main/java/agents/CoverageCollection", "addMethodLine", "(Ljava/lang/String;Ljava/lang/Integer;)V", false);
 
     	}
+
     	super.visitLineNumber(line, start);
     }
     

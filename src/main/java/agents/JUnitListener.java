@@ -44,7 +44,7 @@ public class JUnitListener extends RunListener {
     public void testRunFinished(Result result) throws Exception {
 
     	System.out.println("Testing Finished.\n\n");
-        
+
         
         File fout = new File("stmt-cov.txt");
         FileOutputStream fos = new FileOutputStream(fout);
@@ -68,6 +68,7 @@ public class JUnitListener extends RunListener {
         }
         bw.write(builder.toString());
         bw.close();
+		System.out.println("totallines: "+ Constant.totalnumber);
     }
 
     public void testFailure(Failure failure) {

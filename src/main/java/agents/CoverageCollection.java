@@ -8,9 +8,11 @@ public class CoverageCollection {
 	public static HashMap<String, HashMap<String, HashSet<Integer>>> testCase_Coverages;
 	public static HashMap<String, HashSet<Integer>> coverage;
 	public static String testCase;
+	public static int totallines;
 	
 	
 	public static void addMethodLine(String className, Integer line){
+
     	//return if no test has been started
 		if (coverage == null) {
     		return;
@@ -30,6 +32,7 @@ public class CoverageCollection {
         	lines.add(line);
             coverage.put(className, lines);
         }
+
     }
 
 }

@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d46b34b-7535-4cb4-a2e9-fa8386d8cddc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agents/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agents/CoverageCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agents/CoverageCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agents/JUnitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agents/JUnitListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agents/MethodTransformVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agents/MethodTransformVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agents/TestingClassFileTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agents/TestingClassFileTransformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT-sources.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/JCover-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/agents/CoverageCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/agents/CoverageCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/agents/JUnitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/agents/JUnitListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/java/agents/MethodTransformVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/agents/MethodTransformVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/agents/TestingClassFileTransformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/agents/TestingClassFileTransformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -71,6 +80,7 @@
       <workItem from="1574795168602" duration="625000" />
       <workItem from="1574885911996" duration="909000" />
       <workItem from="1574937517620" duration="1754000" />
+      <workItem from="1574960264854" duration="6118000" />
     </task>
     <servers />
   </component>

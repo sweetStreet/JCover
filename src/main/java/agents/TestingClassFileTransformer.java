@@ -10,7 +10,6 @@ import java.security.ProtectionDomain;
 public class TestingClassFileTransformer implements ClassFileTransformer{
 
 		public byte[] transform(ClassLoader classloader, String s, Class<?> someClass, ProtectionDomain protectionDomain, byte[] bytes)throws IllegalClassFormatException {
-			
 
 			//Read and change the bytecode if it belongs to the package being tested.
 			// Returns the original bytecode if it does not match the package.
