@@ -41,7 +41,6 @@ public class JUnitListener extends RunListener {
     }
 
     public void testFinished(Description description) throws Exception {
-    	
     	StatementCoverageCollection.testCase_StmtCoverages.put(StatementCoverageCollection.testCase, StatementCoverageCollection.stmtcoverage);
 		BranchCoverageCollection.testCase_BranchCoverages.put(BranchCoverageCollection.testCase, BranchCoverageCollection.branchcoverage);
     }
@@ -88,8 +87,8 @@ public class JUnitListener extends RunListener {
 				while(i.hasNext()){
 					builder.append(className + ":" + i.next() + "\n");
 				}
-				//delete return
-				builder.deleteCharAt(builder.length()-1);
+//				//delete return
+//				builder.deleteCharAt(builder.length()-1);
 			}
 		}
         bw.write(builder.toString());

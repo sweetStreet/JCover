@@ -17,11 +17,14 @@ class ClassTransformVisitor extends ClassVisitor implements Opcodes {
         ClassName = name;
         super.visit(version, access, name, signature, superName, interfaces);
     }
+
     @Override
     public MethodVisitor visitMethod(final int access, final String name, final String desc, final String signature, final String[] exceptions) {
     	MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
         return mv == null ? null : new MethodTransformVisitor(mv, ClassName);
     }
+
+
 }
 
 
