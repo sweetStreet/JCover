@@ -9,9 +9,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.text.DecimalFormat;
+import java.util.*;
 
 
 public class JUnitListener extends RunListener {
@@ -19,7 +18,6 @@ public class JUnitListener extends RunListener {
 	private static int i = 1;
 
     public void testRunStarted(Description description) throws Exception {
-    		
 
     	if (null == StatementCoverageCollection.testCase_StmtCoverages){
 			StatementCoverageCollection.testCase_StmtCoverages = new HashMap<String, HashMap<String, HashSet<Integer>>>();
@@ -49,6 +47,8 @@ public class JUnitListener extends RunListener {
 
     	System.out.println("Testing Finished.\n\n");
 
+		GenerateHtml generateHtml = new GenerateHtml();
+		DecimalFormat fmt = new DecimalFormat("##0.00");
         
         File fout = new File("stmt-cov.txt");
         FileOutputStream fos = new FileOutputStream(fout);
@@ -58,13 +58,21 @@ public class JUnitListener extends RunListener {
         builder.append("statement coverage"+"\n");
         for (String testCaseName : StatementCoverageCollection.testCase_StmtCoverages.keySet()) {
         	builder.append(testCaseName + "\n");
+
         	
         	HashMap<String, HashSet<Integer>> caseStmtCoverage =
         			StatementCoverageCollection.testCase_StmtCoverages.get(testCaseName);
         	
             for (String className : caseStmtCoverage.keySet()) {
+            	List<Integer> totalstatments = Constant.totalCoverages.getOrDefault(className, new ArrayList<>());
+            	int totalstmtsize = totalstatments.size();
+            	builder.append(className+" total statements: "+ totalstmtsize+"\n");
+
             	HashSet<Integer> lines = caseStmtCoverage.get(className);
-            	
+				generateHtml.generateHtml(className, totalstatments, lines);
+				if(totalstmtsize!=0)
+					builder.append("statement coverage rate: "+ fmt.format((double)lines.size()/totalstmtsize) +"\n");
+
             	Iterator<Integer> i = lines.iterator();
             	while(i.hasNext()){
                 	builder.append(className + ":" + i.next() + "\n");
@@ -87,8 +95,7 @@ public class JUnitListener extends RunListener {
 				while(i.hasNext()){
 					builder.append(className + ":" + i.next() + "\n");
 				}
-//				//delete return
-//				builder.deleteCharAt(builder.length()-1);
+
 			}
 		}
         bw.write(builder.toString());

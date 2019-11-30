@@ -4,7 +4,10 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 class  MethodTransformVisitor extends MethodVisitor implements Opcodes {
 
@@ -14,16 +17,15 @@ class  MethodTransformVisitor extends MethodVisitor implements Opcodes {
     public MethodTransformVisitor(final MethodVisitor mv, String name) {
         super(ASM5, mv);
         this.mName=name;
-
     }
-
-
 
     //visits line of code along the path of the called method and parameters
     @Override
     public void visitLineNumber(int line, Label start) {
 
-        Constant.totalnumber++;
+        List<Integer> list = Constant.totalCoverages.getOrDefault(mName, new ArrayList<Integer>());
+        list.add(line);
+        Constant.totalCoverages.put(mName, list);
 
     	if (0 != line) {
             lastVisitedLine = line;
@@ -59,7 +61,6 @@ class  MethodTransformVisitor extends MethodVisitor implements Opcodes {
     //lets the visitor know they have reached the end of the method
     @Override
     public void visitEnd() {
-        System.out.println("visit end");
     	super.visitEnd();
     }
 }	

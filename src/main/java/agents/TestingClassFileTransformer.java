@@ -13,10 +13,11 @@ public class TestingClassFileTransformer implements ClassFileTransformer{
 
 			//Read and change the bytecode if it belongs to the package being tested.
 			// Returns the original bytecode if it does not match the package.
-			if(s.startsWith("pset1")){
+			if(s.startsWith(Constant.packageName)){
 //				if(s.startsWith("org/apache/commons/dbutil") || s.startsWith("org/joda/time")){
 				ClassReader cr = new ClassReader(bytes);
 				ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
+				Constant.sourceCode.put(s, new String(bytes));
 				ClassTransformVisitor ca = new ClassTransformVisitor(cw);
 				cr.accept(ca, 0);
 				return cw.toByteArray();
