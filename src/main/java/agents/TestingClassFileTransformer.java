@@ -6,6 +6,7 @@ import org.objectweb.asm.ClassWriter;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
+import java.util.Base64;
 
 public class TestingClassFileTransformer implements ClassFileTransformer{
 
@@ -14,10 +15,9 @@ public class TestingClassFileTransformer implements ClassFileTransformer{
 			//Read and change the bytecode if it belongs to the package being tested.
 			// Returns the original bytecode if it does not match the package.
 			if(s.startsWith(Constant.packageName)){
-//				if(s.startsWith("org/apache/commons/dbutil") || s.startsWith("org/joda/time")){
 				ClassReader cr = new ClassReader(bytes);
 				ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
-				Constant.sourceCode.put(s, new String(bytes));
+
 				ClassTransformVisitor ca = new ClassTransformVisitor(cw);
 				cr.accept(ca, 0);
 				return cw.toByteArray();

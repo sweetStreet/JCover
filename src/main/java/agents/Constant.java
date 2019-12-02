@@ -8,6 +8,5 @@ public class Constant {
 
     public static String packageName = "pset1";
     public static HashMap<String, List<Integer>> totalCoverages = new HashMap<>();
-    public static HashMap<String, String> sourceCode = new HashMap<>();
-
+    public static HashMap<String, List<Integer>> totalBranchCoverages = new HashMap<>();
 }

@@ -5,15 +5,13 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 class  MethodTransformVisitor extends MethodVisitor implements Opcodes {
 
 	String mName;
 	int lastVisitedLine;
-	
+
     public MethodTransformVisitor(final MethodVisitor mv, String name) {
         super(ASM5, mv);
         this.mName=name;

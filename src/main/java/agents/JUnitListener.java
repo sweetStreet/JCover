@@ -5,10 +5,7 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -59,17 +56,19 @@ public class JUnitListener extends RunListener {
         for (String testCaseName : StatementCoverageCollection.testCase_StmtCoverages.keySet()) {
         	builder.append(testCaseName + "\n");
 
-        	
         	HashMap<String, HashSet<Integer>> caseStmtCoverage =
         			StatementCoverageCollection.testCase_StmtCoverages.get(testCaseName);
         	
             for (String className : caseStmtCoverage.keySet()) {
+
             	List<Integer> totalstatments = Constant.totalCoverages.getOrDefault(className, new ArrayList<>());
             	int totalstmtsize = totalstatments.size();
             	builder.append(className+" total statements: "+ totalstmtsize+"\n");
 
             	HashSet<Integer> lines = caseStmtCoverage.get(className);
-				generateHtml.generateHtml(className, totalstatments, lines);
+				//print out the source file with highlights
+				generateHtml.generateStmtHtml(className, totalstatments, lines);
+
 				if(totalstmtsize!=0)
 					builder.append("statement coverage rate: "+ fmt.format((double)lines.size()/totalstmtsize) +"\n");
 
@@ -88,8 +87,12 @@ public class JUnitListener extends RunListener {
 			HashMap<String, HashSet<Integer>> caseStmtCoverage =
 					BranchCoverageCollection.testCase_BranchCoverages.get(testCaseName);
 
+
 			for (String className : caseStmtCoverage.keySet()) {
 				HashSet<Integer> lines = caseStmtCoverage.get(className);
+
+				List<Integer> totalstatments = Constant.totalCoverages.getOrDefault(className, new ArrayList<>());
+				generateHtml.generateBranchHtml(className, totalstatments, lines);
 
 				Iterator<Integer> i = lines.iterator();
 				while(i.hasNext()){
